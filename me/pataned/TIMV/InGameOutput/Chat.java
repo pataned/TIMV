@@ -2,7 +2,16 @@ package me.pataned.TIMV.InGameOutput;
 
 public class Chat {
 	
-	//ZLUTA = Dulezite veci
-  //SEDA = Normalni text
+	/*
+	 *====== ZÁKONY FARIEB =======
+	 * ChatColor.WHITE = Objekty
+	 * ChatColor.RED = Hraci
+	 * ChatColor.GREEN = Cisla
+	 * ===========================
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 }
