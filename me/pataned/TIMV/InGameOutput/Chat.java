@@ -23,8 +23,12 @@ public class Chat {
 		Bukkit.broadcastMessage(prefix + text);
 	}
 	
-	public static void broadcast(String prefix, String text, Player array){
-		array.sendMessage(prefix + text);
+	public static void broadcast1(String prefix, String text){
+		for (Player array : Bukkit.getOnlinePlayers()){
+			array.sendMessage(prefix + text);
+		}
+		
+		
 	}
 	
 	public static Player getArrayPlayer(boolean auto){
