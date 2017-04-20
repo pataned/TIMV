@@ -1,9 +1,9 @@
-
 package me.pataned.TIMV;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.pataned.TIMV.Threads.CountDown.ZacatecniOdpocitavani;
+import me.pataned.TIMV.enumerators.GamePhase;
 
 public class Main extends JavaPlugin{
 
@@ -13,6 +13,7 @@ public class Main extends JavaPlugin{
 	public void onEnable(){
 		plugin = this;
 		o1.start();
+		GamePhase.setPhase(GamePhase.CEKANI);
 	}
 	
 	public void onDisable(){
