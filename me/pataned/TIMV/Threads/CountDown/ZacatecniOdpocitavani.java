@@ -12,8 +12,7 @@ public class ZacatecniOdpocitavani extends Odpocitavani{
 	int id;
 	
 	int i;
-	// TODO Po prenose do pocitaca - riadok: Chat.broadcastExceptConsole(Chat.newTempPrefix(ChatColor.GRAY, ChatColor.DARK_RED, ChatColor.YELLOW, "PrefixText"), "Testing the prefix - " + ChatColor.GREEN + i);
-	//                                       Vymazat
+	                        
 	public void start() {
 		id = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.plugin, new Runnable(){
 			public void run(){
