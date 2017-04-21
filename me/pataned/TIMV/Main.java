@@ -11,6 +11,7 @@ public class Main extends JavaPlugin{
 
 	public static Main plugin;
 	public void onEnable(){
+		getLogger().warning("For plugin function you need plugins: ActionBarAPI, PermissionsEx, EasyCoins (by Petrosaurus)");
 		plugin = this;
 		o1.start();
 		GamePhase.setPhase(GamePhase.CEKANI);
