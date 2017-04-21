@@ -5,9 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class Chat {
-	// TODO: Opravit bug! (4 vlcik)
-	
-	
+
 	/*
 	 *====== ZÁKONY FARIEB =======
 	 * ChatColor.WHITE = Objekty
@@ -20,41 +18,28 @@ public class Chat {
 	 * 
 	 */
 
-	public static void broadcast(String prefix, String text){
+	
+	public static void broadcastWithConsole(String prefix, String text){
 		Bukkit.broadcastMessage(prefix + text);
-	}
-	
-	public static void broadcast1(String prefix, String text){
-		for (Player array : Bukkit.getOnlinePlayers()){
-			array.sendMessage(prefix + text);
-		}
-		
 		
 	}
 	
-	public static Player getArrayPlayer(boolean auto){
-		if (auto){
-			for (Player p : Bukkit.getOnlinePlayers()){
-				return p;
-			}
+	public static void broadcastExceptConsole(String prefix, String text){
+		for (Player p : Bukkit.getOnlinePlayers()){
+			p.sendMessage(prefix + text);
 		}
-		return null;
 	}
 	
-	public static void send(Player p, String prefix, String text){
-		p.sendMessage(prefix + text);
-	}
+	public static void send(Player p, String text){
+		p.sendMessage(text);
 	
-	public static String newPrefix(boolean brackets, ChatColor bracketclr, boolean hranate, String body, ChatColor bodyclr){
-		if (brackets){
-			if (hranate){
-				return bracketclr + "[" + bodyclr + body + bracketclr + "] ";
-			} else {
-				return bracketclr + "(" + bodyclr + body + bracketclr + ") ";
-			}
-		} else {
-			return bodyclr + body + bracketclr + " > " + ChatColor.GRAY;
-		}
+	}
+//	[]
+	public static String newTempPrefix(ChatColor bracketClr, ChatColor bodyClr, ChatColor txtClr, String body){
+		return bracketClr + "[" + bodyClr + body + bracketClr + "] " + txtClr;
+	}
+	public static String newTempPrefix(ChatColor bracketClr, ChatColor bodyClr, ChatColor txtClr, String body, String leftBracket, String rightBracket){
+		return bracketClr + leftBracket + bodyClr + body + bracketClr + rightBracket + txtClr + " ";
 	}
 	
 }
