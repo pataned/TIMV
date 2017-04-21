@@ -1,5 +1,6 @@
 package me.pataned.TIMV;
 
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.pataned.TIMV.Threads.CountDown.ZacatecniOdpocitavani;
@@ -13,12 +14,16 @@ public class Main extends JavaPlugin{
 	public void onEnable(){
 		getLogger().warning("For plugin function you need plugins: ActionBarAPI, PermissionsEx, EasyCoins (by Petrosaurus)");
 		plugin = this;
+		registerEvents(getServer().getPluginManager());
 		o1.start();
 		GamePhase.setPhase(GamePhase.CEKANI);
 	}
 	
 	public void onDisable(){
 		o1.stop();
+	}
+	private void registerEvents(PluginManager pm){
+		pm.registerEvents(new Join(), this);
 	}
 
 
