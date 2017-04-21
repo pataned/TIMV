@@ -3,6 +3,7 @@ package me.pataned.TIMV;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import me.pataned.TIMV.Listeners.Join;
 import me.pataned.TIMV.Threads.CountDown.ZacatecniOdpocitavani;
 import me.pataned.TIMV.enumerators.GamePhase;
 
