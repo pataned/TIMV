@@ -20,7 +20,7 @@ public class Join implements Listener{
 	public void onJoin(PlayerJoinEvent e){
 		Player p = e.getPlayer();
 		e.setJoinMessage(Chat.newTempPrefix(ChatColor.DARK_GREEN, ChatColor.DARK_RED, ChatColor.GRAY, "TIMV-Join") + "Hrac " + ChatColor.RED + p.getName() + ChatColor.GRAY + " se pripojil.");
-		if (Bukkit.getOnlinePlayers().size() >= 2){
+		if (Bukkit.getOnlinePlayers().size() == 2){
 			ZacatecniOdpocitavani o = new ZacatecniOdpocitavani();
 			Chat.broadcastWithConsole(Chat.newTempPrefix(ChatColor.DARK_GREEN, ChatColor.DARK_RED, ChatColor.GRAY, "Odpocitavani"), "Na serveru je dostatek hracu pro start hry!");
 			o.start();
