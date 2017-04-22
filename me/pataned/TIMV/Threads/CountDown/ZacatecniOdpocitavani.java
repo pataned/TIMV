@@ -15,8 +15,13 @@ public class ZacatecniOdpocitavani extends Odpocitavani{
 
 	int id;
 
+	
 	int i = -1;
 
+	public int getId(){
+		return id;
+	}
+	
 	private String OdpocitavaniDeftext(int s){
 		return "Do startu hry zbyva " + ChatColor.GREEN + s + ChatColor.GRAY + " sekund";
 	}
@@ -26,6 +31,7 @@ public class ZacatecniOdpocitavani extends Odpocitavani{
 			public void run(){
 				if (i == -1){
 					i = 31;
+					Main.plugin.getServer().getLogger().info("Nastartovalo odpocitavanie s ID: " + getId());
 				}
 				i--;
 				String PrubehOdpocitavaniprefix = Chat.newTempPrefix(ChatColor.DARK_AQUA, ChatColor.RED, ChatColor.GRAY, "Prubeh odpocitavani", "<", ">");
@@ -84,6 +90,7 @@ public class ZacatecniOdpocitavani extends Odpocitavani{
 
 	public void stop() {
 		Bukkit.getScheduler().cancelTask(id);
+		Main.plugin.getServer().getLogger().info("Zrusene odpocitavanie s ID: " + getId());
 
 	}
 
