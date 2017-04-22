@@ -1,8 +1,9 @@
-package me.pataned.TIMV.Listeners.Quit
+package me.pataned.TIMV.Listeners;
 
 import org.bukkit.event.Listener;
 
-public class Quit implements Listner{
-
+public class Quit implements Listener{
+	
+	
 
 }
