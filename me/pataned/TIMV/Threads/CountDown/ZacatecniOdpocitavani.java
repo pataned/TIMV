@@ -12,11 +12,11 @@ import me.pataned.TIMV.InGameOutput.Chat;
 import me.pataned.TIMV.Threads.Odpocitavani;
 
 public class ZacatecniOdpocitavani extends Odpocitavani{
-	
+
 	int id;
-	
-	int i;
-	      
+
+	int i = -1;
+
 	private String OdpocitavaniDeftext(int s){
 		return "Do startu hry zbyva " + ChatColor.GREEN + s + ChatColor.GRAY + " sekund";
 	}
@@ -24,67 +24,69 @@ public class ZacatecniOdpocitavani extends Odpocitavani{
 		id = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.plugin, new Runnable(){
 			@SuppressWarnings("deprecation")
 			public void run(){
-				i = 31;
+				if (i == -1){
+					i = 31;
+				}
 				i--;
 				String PrubehOdpocitavaniprefix = Chat.newTempPrefix(ChatColor.DARK_AQUA, ChatColor.RED, ChatColor.GRAY, "Prubeh odpocitavani", "<", ">");
 				for (Player p : Bukkit.getOnlinePlayers()){
 					p.setLevel(i);
 					if (i == 30){
-						Chat.broadcastWithConsole(Chat.newTempPrefix(ChatColor.DARK_AQUA, ChatColor.RED, ChatColor.GRAY, "Prubeh odpocitavani", "<", ">"), "Do startu hry zbyva " + ChatColor.GREEN + i + ChatColor.GRAY + " sekund");
-						TitleAPI.sendSubtitle(p, 1, 2, 1, "Hra zacina &a" + i);
+						Chat.send(p, PrubehOdpocitavaniprefix + OdpocitavaniDeftext(i));
+						TitleAPI.sendFullTitle(p, 20, 40, 20, "", "Hra zacina za &a" + i);
 					}
 					if (i == 20){
-						Chat.broadcastExceptConsole(PrubehOdpocitavaniprefix, OdpocitavaniDeftext(i));
+						Chat.send(p, PrubehOdpocitavaniprefix + OdpocitavaniDeftext(i));
 					}
 					if (i == 15){
-						TitleAPI.sendSubtitle(p, 1, 2, 1, "Hra zacina &a" + i);
-						Chat.broadcastWithConsole(PrubehOdpocitavaniprefix, OdpocitavaniDeftext(i));
+						TitleAPI.sendFullTitle(p, 20, 40, 20, "", "Hra zacina za &a" + i);
+						Chat.send(p, PrubehOdpocitavaniprefix + OdpocitavaniDeftext(i));
 					}
 					if (i == 10){
-						TitleAPI.sendSubtitle(p, 1, 2, 1, "Hra zacina &a" + i);
-						Chat.broadcastWithConsole(PrubehOdpocitavaniprefix, OdpocitavaniDeftext(i));
+						TitleAPI.sendFullTitle(p, 20, 40, 20, "", "Hra zacina za &a" + i);
+						Chat.send(p, PrubehOdpocitavaniprefix + OdpocitavaniDeftext(i));
 					}
 					if (i == 5){
-						TitleAPI.sendSubtitle(p, 1, 2, 1, "Hra zacina &a" + i);
-						Chat.broadcastWithConsole(PrubehOdpocitavaniprefix, OdpocitavaniDeftext(i));
+						TitleAPI.sendFullTitle(p, 20, 40, 20, "", "Hra zacina za &a" + i);
+						Chat.send(p, PrubehOdpocitavaniprefix + OdpocitavaniDeftext(i));
 					}
 					if (i == 4){
-						TitleAPI.sendSubtitle(p, 1, 2, 1, "Hra zacina &a" + i);
-						Chat.broadcastExceptConsole(PrubehOdpocitavaniprefix, OdpocitavaniDeftext(i));
+						TitleAPI.sendFullTitle(p, 20, 40, 20, "", "Hra zacina za &a" + i);
+						Chat.send(p, PrubehOdpocitavaniprefix + OdpocitavaniDeftext(i));
 					}
 					if (i == 3){
-						TitleAPI.sendSubtitle(p, 1, 2, 1, "Hra zacina &a" + i);
-						Chat.broadcastExceptConsole(PrubehOdpocitavaniprefix, OdpocitavaniDeftext(i));
+						TitleAPI.sendFullTitle(p, 20, 40, 20, "", "Hra zacina za &a" + i);
+						Chat.send(p, PrubehOdpocitavaniprefix + OdpocitavaniDeftext(i));
 					}
 					if (i == 2){
-						TitleAPI.sendSubtitle(p, 1, 2, 1, "Hra zacina &a" + i);
-						Chat.broadcastExceptConsole(PrubehOdpocitavaniprefix, OdpocitavaniDeftext(i));
+						TitleAPI.sendFullTitle(p, 20, 40, 20, "", "Hra zacina za &a" + i);
+						Chat.send(p, PrubehOdpocitavaniprefix + OdpocitavaniDeftext(i));
 					}
 					if (i == 1){
-						TitleAPI.sendSubtitle(p, 1, 2, 1, "Hra zacina &a" + i);
-						Chat.broadcastWithConsole(PrubehOdpocitavaniprefix, OdpocitavaniDeftext(i));
+						TitleAPI.sendFullTitle(p, 20, 40, 20, "", "Hra zacina za &a" + i);
+						Chat.send(p, PrubehOdpocitavaniprefix + OdpocitavaniDeftext(i));
 					}
 					if (i == 0){
-						/*TODO: start hry
-						 * 
-						 */
-						TitleAPI.sendFullTitle(p, 1, 3, 1, "&6Hra zacina!", "&eTIMV &e&o(plugin by pataned & vlcik128)");
-						Chat.broadcastWithConsole(PrubehOdpocitavaniprefix, ChatColor.AQUA + "Hra zacina!");
+						for (Player o : Bukkit.getOnlinePlayers()){
+							TitleAPI.sendFullTitle(o, 20, 40, 20, "&6Hra zacina", "&eTIMV &e&o(plugin by pataned & vlcik128)");
+							Chat.send(o, PrubehOdpocitavaniprefix + ChatColor.AQUA + "Hra zacina!");
+						}
 						ActionBarAPI.sendActionBarToAllPlayers(ChatColor.DARK_GRAY + "Spousteji se dulezite herni eventy a mechaniky");
+						i = -1;
 						stop();
 					}
 				}
-			
+
 			}
 		}, 0L, 20L);
-		
+
 	}
 
 	public void stop() {
 		Bukkit.getScheduler().cancelTask(id);
-		
+
 	}
-	
-	
+
+
 
 }
