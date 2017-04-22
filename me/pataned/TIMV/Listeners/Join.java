@@ -13,6 +13,7 @@ import me.pataned.TIMV.Threads.CountDown.ZacatecniOdpocitavani;
 public class Join implements Listener{
 	
 	private int PocetHracov;
+	//TODO: Nastavit config.yml - vlcik128
 	
 	
 	
@@ -27,6 +28,8 @@ public class Join implements Listener{
 			
 			
 		}
+		
+		
 		
 	}
 	
