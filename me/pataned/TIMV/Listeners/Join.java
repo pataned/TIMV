@@ -12,8 +12,7 @@ import me.pataned.TIMV.Threads.CountDown.ZacatecniOdpocitavani;
 
 public class Join implements Listener{
 	
-	@SuppressWarnings("unused")
-	private int PocetHracov;
+	public static int PocetHracov;
 	//TODO: vlcik128
 	
 	
